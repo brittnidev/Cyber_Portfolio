@@ -1,44 +1,44 @@
 # Analyzing DNS Log Files Using Splunk SIEM
 
 ## Introduction
-DNS (Domain Name System) logs are crucial for understanding network activity and identifying potential security threats. Splunk SIEM (Security Information and Event Management) provides powerful capabilities for analyzing DNS logs and detecting anomalies or malicious activities.
+Analyzing DNS (Domain Name System) logs to increase understanding of network activity and identifying any potential security threats. Utilizing my Splunk SIEM tool I analyzed DNS logs and searched to identify any anomalies or malicious activities.
 
-## Prerequisites
+## Installing and Configuring SPLUNK
 Before analyzing DNS logs in Splunk, ensure the following:
 - Splunk instance is installed and configured.
 - DNS log data sources are configured to forward logs to Splunk.
 
-## Steps to Upload Sample DNS Log Files to Splunk SIEM
+## Steps taken to Upload and analyze DNS Log Files in Splunk SIEM
 
 ### 1. Prepare Sample DNS Log Files
-- Obtain sample [DNS log file](https://www.secrepo.com/maccdc2012/dns.log.gz) in a suitable format (e.g., text files).
-- Ensure the log files contain relevant DNS events, including source IP, destination IP, domain name, query type, response code, etc.
-- Save the sample log files in a directory accessible by the Splunk instance.
+- Obtained sample [DNS log file](https://www.secrepo.com/maccdc2012/dns.log.gz) in a suitable format (e.g., text files).
+- Ensured the log files contain relevant DNS events, including source IP, destination IP, domain name, query type, response code, etc.
+- Saved the sample log files in a directory accessible by the Splunk instance.
 
 ### 2. Upload Log Files to Splunk
-- Log in to the Splunk web interface.
-- Navigate to **Settings** > **Add Data**.
+- Logged in to the Splunk web interface.
+- Navigated to **Settings** > **Add Data**.
 - Select **Upload** as the data input method.
 
 ### 3. Choose File
-- Click on **Select File** and choose the sample DNS log file you prepared earlier.
+- Click on **Select File** and upload the sample file for analysis.
 
 ### 4. Set Source Type
-- In the **Set Source Type** section, specify the source type for the uploaded log file.
-- Choose the appropriate source type for DNS logs (e.g., `dns` or a custom source type if applicable).
+- Under **Set Source Type** section, specified the source type for the uploaded DNS log file.
+- Set source type to DNS log
 
 ### 5. Review Settings
-- Review other settings such as index, host, and sourcetype.
+- Reviewed other settings such as index, host, and sourcetype.
 - Ensure the settings are configured correctly to match the sample DNS log file.
 
 ### 6. Click Upload
-- Once all settings are configured, click on the **Review** button.
-- Review the settings one final time to ensure accuracy.
-- Click **Submit** to upload the sample DNS log file to Splunk.
+- Reviewed the settings one final time to ensure accuracy.
+- **Submit** to upload the sample DNS log file to Splunk.
 
-### 7. Verify Upload
+### 7. Verified Upload
 - After uploading, navigate to the search bar in the Splunk interface.
-- Run a search query to verify that the uploaded DNS events are visible.
+- Ran a search query to verify that the uploaded DNS events are visible.
+- *For security I have hidden my host information
   
   ```spl
   index=<your_dns_index> sourcetype=<your_dns_sourcetype>
@@ -47,49 +47,54 @@ Before analyzing DNS logs in Splunk, ensure the following:
 ## Steps to Analyze DNS Log Files in Splunk SIEM
 
 ### 1. Search for DNS Events   
-- Open Splunk interface and navigate to the search bar.   
-- Enter the following search query to retrieve DNS events   
+- Entered the following search query to retrieve DNS events   
 ```
 index=* sourcetype=dns_sample
 ```
 
-### 2. Extract Relevant Fields
-- Identify key fields in DNS logs such as source IP, destination IP, domain name, query type, response code, etc.   
-- As mentioned below,  | regex _raw="(?i)\b(dns|domain|query|response|port 53)\b": This regex searches for common DNS-related keywords in the raw event data.
-- Example extraction command:
+### 2. Extracting Relevant Fields
+- Identified key fields in DNS logs such as source IP, destination IP, domain name, query type, response code, etc.   
+- Example extraction command I used:
 ```
 index=* sourcetype=dns_sample | regex _raw="(?i)\b(dns|domain|query|response|port 53)\b"
 ```
 
-### 3. Identify Anomalies
-- Look for unusual patterns or anomalies in DNS activity.
-- Example query to identify spikes
+### 3. Identified Anomalies
+- Looked for unusual patterns or anomalies in DNS activity.
+- Example of query I used to identify spikes
 ```
 index=_* OR index=* sourcetype=dns_sample  | stats count by fqdn
 ```
 
-### 4. Find the top DNS sources
-- Use the top command to count the occurrences of each query type:   
+### 4. Finding the top DNS sources
+- Used the top command to count the occurrences of each query type:   
 ```
 index=* sourcetype=dns_sample | top fqdn, src_ip
 ```
 
-
-
-### 5. Investigate Suspicious Domains
-- Search for domains associated with known malicious activity or suspicious behavior.
-- Utilize threat intelligence feeds or reputation databases to identify malicious domains such virustotal.com
-- Example search for known malicious domains:
+### 5. Investigated Suspicious Domains
+- Searched for domains associated with known malicious activity or suspicious behavior.
+- Utilized threat intelligence feeds and reputation databases to identify malicious domains such virustotal.com
+- Example search i used for known malicious domains:
 ```
 index=* sourcetype=dns_sample fqdn="maliciousdomain.com"
 ```
 
 ## Conclusion
-Analyzing DNS log files using Splunk SIEM enables security professionals to detect and respond to potential security incidents effectively. By understanding DNS activity and identifying anomalies, organizations can enhance their overall security posture and protect against various cyber threats.
+This project demonstrates how DNS log analysis with Splunk SIEM can improve network visibility and security monitoring. By ingesting and querying DNS logs, I moved from raw data to actionable insights such as top queried domains, active sources, and potential anomalies. The approach is reproducible and scalable for real-world environments.
 
-Feel free to customize these steps according to your specific use case and requirements. 
+Key outcomes:
+- Proper data ingestion and normalization enabled reliable searches and reporting.
+- Identified patterns in DNS activity and highlighted potential anomalies for follow-up.
+- Used threat intelligence to flag known malicious domains for further validation.
 
-Happy analyzing!
+Limitations:
+- Used a sample dataset; a production environment requires larger, diverse data and baselining to reduce false positives.
+- Results depend on data quality and complete context from other security sources.
 
+Next steps:
+- Integrate with other logs (firewall, proxy) for richer context.
+- Automate alerts for high-risk DNS activity.
+- Build dashboards for ongoing monitoring and reporting.
 
 
