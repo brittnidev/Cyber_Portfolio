@@ -1,4 +1,4 @@
-# Secure Access with Microsft Entra ID (previously Azure Active Directory) (Azure AD)
+# Secure Access with Microsoft Entra ID (previously Azure Active Directory) (Azure AD)
 
 A hands-on implementation of secure identity and access management using Azure Active Directory. This project covers cloud and hybrid identity, user and group management, multi-factor authentication (MFA), passwordless options, and hybrid connectivity via Azure AD Connect. It emphasizes RBAC, SSO, conditional access, and security best practices for modern cloud-first environments.
 
