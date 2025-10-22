@@ -108,30 +108,4 @@ $skuId = (Get-AzureADSubscribedSku | Where-Object { $_.SkuPartNumber -eq "ENTERP
 Set-AzureADUserLicense -ObjectId (Get-AzureADUser -SearchString "alex.doe@contoso.onmicrosoft.com").ObjectId -AddLicenses $skuId -ReleaseLicenses $null
 ```
 
-- PowerShell: placeholder for MFA enforcement note
-```powershell
-# This is a simplified example; actual MFA enforcement is done via Conditional Access
-Write-Output "MFA is enforced via Conditional Access policy in Azure AD."
-```
-
-- JSON: sample conditional access policy (high level)
-```json
-{
-  "displayName": "Require MFA for all cloud apps",
-  "conditions": {
-    "users": {
-      "includeUsers": ["All"]
-    },
-    "applications": {
-      "includeApplications": ["All"]
-    },
-    "platforms": {
-      "includePlatforms": ["All"]
-    }
-  },
-  "grantControls": {
-    "builtInControls": ["mfa"]
-  },
-  "sessionControls": {}
-}
 ```
