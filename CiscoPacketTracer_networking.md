@@ -1,4 +1,4 @@
-# Configuring and Testing Basic Network Connectivity (Guided Project)
+# Configuring and Testing Basic Network Connectivity 
 
 I completed this guided project focused on Configuring and Testing Basic Network Connectivity. It’s designed for IT security professionals and aspiring network engineers who want to build foundational network skills in a simulated environment.
 
