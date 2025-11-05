@@ -18,15 +18,13 @@ I completed this guided project focused on Configuring and Testing Basic Network
 - Solid background in computer networks (recommended).
 - Cisco Networking Academy ID required to access Packet Tracer for this project.
 
-## How the Guided Project Works
+## In a Nutshell
 
-The instructor guides you through each step in a video that plays alongside your work area. I performed the following tasks:
+I performed the following tasks:
 
-- Introductory task
 - Saving configurations on Cisco devices
-- IP addressing basics and configuration
+- IP addressing basic configuration
 - Configuring virtual interfaces on Cisco switches
-- Practice task 1
 - Testing network connectivity (end-to-end)
 - Configure automatic IP addresses with DHCP servers
 - Capstone task: configure and manage access to Cisco devices
