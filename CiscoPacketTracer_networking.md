@@ -11,15 +11,12 @@ I completed this guided project focused on Configuring and Testing Basic Network
 
 ## Who This Is For
 
-- IT security professionals seeking foundational networking knowledge.
-- Aspiring network engineers or students preparing for Cisco/CCNA-style certification.
-- Learners who prefer hands-on practice in a safe, simulated environment.
+- IT security professionals needing to demonstrate foundational networking knowledge.
 
 ## Prerequisites
 
 - Solid background in computer networks (recommended).
 - Cisco Networking Academy ID required to access Packet Tracer for this project.
-- Access to the course video content (split-screen instructional videos).
 
 ## How the Guided Project Works
 
