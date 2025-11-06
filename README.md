@@ -1,7 +1,7 @@
 
 # My IT Projects Portfolio
 
-Welcome to my IT projects portfolio. The projects listed in this repository are designed to demonstrate the core skills and practical abilities that are essential in today’s IT industry. Each project showcases hands-on work, problem-solving, and a drive to learn and adapt to real-world tech environments.
+Welcome to my IT projects portfolio. The projects listed in this repository are designed to demonstrate the core skills and practical abilities that are essential in today’s IT industry. Each project showcases hands-on work, problem-solving, and demonstrate my drive to learn and adapt to real-world tech environments.
 
 What you’ll find in this repo
 - Focused projects that cover foundational to intermediate IT topics
