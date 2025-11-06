@@ -73,11 +73,6 @@ I performed the following tasks:
    - Implement access controls (console/VTY) as appropriate
    - Practice secure management best practices (passwords, banners, etc.)
 
-## Prerequisites for Completion
-
-- Strong background in computer networking
-- A Cisco Networking Academy ID to access Packet Tracer resources
-
 ## What I Built
 
 - A small, functional network topology with:
@@ -86,7 +81,7 @@ I performed the following tasks:
   - Proper VLAN setup and inter-VLAN routing (where applicable)
   - Verified end-to-end communication between hosts
 
-## Artifacts I Included in the Repo
+## Artifacts I Included
 
 - Network topology diagram (e.g., using draw.io or Visio)
 - Packet Tracer project file (.pkt) or a well-documented script of configurations
@@ -94,7 +89,7 @@ I performed the following tasks:
 - Screenshots of successful ping tests, traceroutes, and DHCP leases
 - A short test plan and results summary
 
-## How I Used This Repository
+## Troubleshooting
 
 - Resolution: corrected interface names to GigabitEthernet0/0/0, completed commands, adjusted subnetting.
 - Connectivity between segments, VLAN tagging, or ACLs blocking traffic.
